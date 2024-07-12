@@ -11,6 +11,9 @@ class Task {
   }
 
   static getAll() {
+    if (!fs.existsSync(dbPath)) {
+      fs.writeFileSync(dbPath, '[]');
+    }
     const tasks = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
     return tasks;
   }

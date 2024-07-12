@@ -13,6 +13,9 @@ RUN npm install
 # Copiar todo o código-fonte para o diretório de trabalho
 COPY . .
 
+# Criar o arquivo tasks.json se não existir
+RUN mkdir -p src/models && echo '[]' > src/models/tasks.json
+
 # Expor a porta que a aplicação irá rodar
 EXPOSE 3000
 
